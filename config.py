@@ -1,5 +1,3 @@
-
-
 HEROKU = True # Make it False if you're not deploying on heroku.
 
 if HEROKU:
@@ -12,7 +10,7 @@ if HEROKU:
 # NOTE Fill this if you are not deploying on heroku.
 if not HEROKU:
 
-    bot_token = "BOT_TOKEN"
+    bot_token = "Get this from @botfather"
     ARQ_API_KEY = "Get this from @ARQRobot"
 # List of supported languages >>
 # https://py-googletrans.readthedocs.io/en/latest/#googletrans-languages
@@ -20,3 +18,4 @@ if not HEROKU:
 
 # Leave it as it is
 ARQ_API_BASE_URL = "https://arq.hamker.in"
+
