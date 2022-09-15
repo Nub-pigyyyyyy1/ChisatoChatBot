@@ -13,4 +13,4 @@ COPY . .
 RUN pip3 install -U -r requirements.txt
 
 # Running chisato
-CMD ["python3","chisato.py"]
+CMD ["python3","Chisato.py"]
