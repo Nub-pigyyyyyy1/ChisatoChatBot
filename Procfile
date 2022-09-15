@@ -1,1 +1,1 @@
-worker: python3 chisato.py
+worker: python3 Chisato.py
