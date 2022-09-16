@@ -28,9 +28,9 @@ async def ChisatoQuery(query: str, user_id: int):
     query = (
         query
         if LANGUAGE == "en"
-        else (await arq.translate(query, "en").result.translatedText
+        else (await arq.translate(query, "en")).result.translatedText
     )
-    resp = (await arq.Chisato(query, user_id).result
+    resp = (await arq.Chisato(query, user_id)).result
     return (
         resp
         if LANGUAGE == "en"
