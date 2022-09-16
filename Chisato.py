@@ -53,7 +53,7 @@ async def type_and_send(message):
 @Chisato.on_message(filters.command("repo") & ~filters.edited)
 async def repo(_, message):
     await message.reply_text(
-        "[GitHub](https://github.com/Yoshikage1/ChisatoChatBot)"
+        "[Repo](https://github.com/Yoshikage1/ChisatoChatBot)"
         + " | [support](t.me/kakashi_bots_support)",
         disable_web_page_preview=True,
     )
