@@ -41,3 +41,11 @@ $ sudo docker run Chisato
 ## Note
 
 - For Any Help, Ask Here [Chisato support chat](https://t.me/kakashi_bots_support)
+
+### ╔═━「 Creator Info/Credits 」
+
++ [Yoshikage](https://github.com/Yoshikage1) : OWNER | DEV
+
++ [LovelyPrince](https://github.com/Awesome-Prince) : FIXS ARQ 
+
+╘═━「 Any other authorship/credits can be seen through the commits. 」
