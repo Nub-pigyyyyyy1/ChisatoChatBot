@@ -1,5 +1,5 @@
-import re
 import os
+import re
 from asyncio import gather, get_event_loop, sleep
 
 from aiohttp import ClientSession
@@ -30,18 +30,18 @@ async def ChisatoQuery(query: str, user_id: int):
         if LANGUAGE == "en"
         else (await arq.translate(query, "en")).result.translatedText
     )
-    resp = (await arq.Client(
-    ":memory:",
-    bot_token=bot_token,
-    api_id=6,
-    api_hash="eb06d4abfb49dc3eeb1aeb98ae0f581e",
-)(query, user_id)).result
+    resp = (
+        await arq.Client(
+            ":memory:",
+            bot_token=bot_token,
+            api_id=6,
+            api_hash="eb06d4abfb49dc3eeb1aeb98ae0f581e",
+        )(query, user_id)
+    ).result
     return (
         resp
         if LANGUAGE == "en"
-        else (
-            await arq.translate(resp, LANGUAGE)
-        ).result.translatedText
+        else (await arq.translate(resp, LANGUAGE)).result.translatedText
     )
 
 
@@ -72,10 +72,7 @@ async def start(_, message):
 
 
 @Chisato.on_message(
-    ~filters.private
-    & filters.text
-    & ~filters.command("help")
-    & ~filters.edited,
+    ~filters.private & filters.text & ~filters.command("help") & ~filters.edited,
     group=69,
 )
 async def chat(_, message):
@@ -96,9 +93,7 @@ async def chat(_, message):
     await type_and_send(message)
 
 
-@Chisato.on_message(
-    filters.private & ~filters.command("help") & ~filters.edited
-)
+@Chisato.on_message(filters.private & ~filters.command("help") & ~filters.edited)
 async def chatpm(_, message):
     if not message.text:
         return

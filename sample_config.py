@@ -1,4 +1,4 @@
-HEROKU = True # Make it False if you're not deploying on heroku.
+HEROKU = True  # Make it False if you're not deploying on heroku.
 
 if HEROKU:
     from os import environ
@@ -12,8 +12,8 @@ if not HEROKU:
 
     bot_token = "Get it from @botfather"
     ARQ_API_KEY = "Get this from @ARQRobot"
-# List of supported languages >>
-# https://py-googletrans.readthedocs.io/en/latest/#googletrans-languages
+    # List of supported languages >>
+    # https://py-googletrans.readthedocs.io/en/latest/#googletrans-languages
     LANGUAGE = "en"
 
 # Leave it as it is
