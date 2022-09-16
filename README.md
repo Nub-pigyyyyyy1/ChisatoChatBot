@@ -27,7 +27,7 @@ $ python3 Chisato.py
 
 ## Heroku
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Yoshikage1/ChisatoChatBot/tree/master)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Yoshikage1/ChisatoChatBot)
 
 
 ## Docker
