@@ -4,7 +4,6 @@
 
 A public running instance can be found on telegram as [@ChisatoChatBot](https://t.me/ChisatoChatBot).
 
-<img src="https://hamker.me/knplfa4_luna.jpg" width="200" align="right">
 
 ## Requirements
 
