@@ -1,6 +1,6 @@
 ![ChisatoChatBot](https://telegra.ph/file/b6240a4e08bb892a3b600.jpg) 
 
- Just another sexy Telegram AI chat bot written in Python using Pyrogram.
+ Just another Telegram AI chat bot written in Python using Pyrogram.
 
 A public running instance can be found on telegram as [@ChisatoChatBot](https://t.me/ChisatoChatBot).
 
