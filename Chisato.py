@@ -48,7 +48,7 @@ async def type_and_send(message):
     await message._client.send_chat_action(chat_id, "cancel")
 
 
-@Chisato.on_message(filters.command("repo") & ~filters.edited)
+@chisato.on_message(filters.command("repo") & ~filters.edited)
 async def repo(_, message):
     await message.reply_text(
         "[Repository](https://github.com/Yoshikage1/ChisatoChatBot)"
@@ -57,14 +57,14 @@ async def repo(_, message):
     )
 
 
-@Chisato.on_message(filters.command("help") & ~filters.edited)
+@chisato.on_message(filters.command("help") & ~filters.edited)
 async def start(_, message):
     await Chisato.send_chat_action(message.chat.id, "typing")
     await sleep(2)
     await message.reply_text("/repo - Get Repo Link")
 
 
-@Chisato.on_message(
+@chisato.on_message(
     ~filters.private & filters.text & ~filters.command("help") & ~filters.edited,
     group=69,
 )
@@ -86,7 +86,7 @@ async def chat(_, message):
     await type_and_send(message)
 
 
-@Chisato.on_message(filters.private & ~filters.command("help") & ~filters.edited)
+@chisato.on_message(filters.private & ~filters.command("help") & ~filters.edited)
 async def chatpm(_, message):
     if not message.text:
         return
@@ -98,7 +98,7 @@ async def main():
     session = ClientSession()
     arq = ARQ(ARQ_API_BASE_URL, ARQ_API_KEY, session)
 
-    await Chisato.start()
+    await chisato.start()
     print(
         """
 -----------------
