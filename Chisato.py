@@ -13,7 +13,7 @@ if is_config:
 else:
     from sample_config import *
 
-luna = Client(
+Chisato = Client(
     ":memory:",
     bot_token=bot_token,
     api_id=6,
@@ -57,14 +57,14 @@ async def repo(_, message):
     )
 
 
-@chisato.on_message(filters.command("help") & ~filters.edited)
+@Chisato.on_message(filters.command("help") & ~filters.edited)
 async def start(_, message):
     await Chisato.send_chat_action(message.chat.id, "typing")
     await sleep(2)
     await message.reply_text("/repo - Get Repo Link")
 
 
-@chisato.on_message(
+@Chisato.on_message(
     ~filters.private & filters.text & ~filters.command("help") & ~filters.edited,
     group=69,
 )
@@ -86,7 +86,7 @@ async def chat(_, message):
     await type_and_send(message)
 
 
-@chisato.on_message(filters.private & ~filters.command("help") & ~filters.edited)
+@Chisato.on_message(filters.private & ~filters.command("help") & ~filters.edited)
 async def chatpm(_, message):
     if not message.text:
         return
@@ -98,7 +98,7 @@ async def main():
     session = ClientSession()
     arq = ARQ(ARQ_API_BASE_URL, ARQ_API_KEY, session)
 
-    await chisato.start()
+    await Chisato.start()
     print(
         """
 -----------------
