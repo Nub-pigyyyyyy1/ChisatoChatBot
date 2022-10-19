@@ -1,3 +1,5 @@
+#credits :- @thehamkercat for the Api
+#.
 import os
 import re
 from asyncio import gather, get_event_loop, sleep
@@ -30,7 +32,7 @@ async def ChisatoQuery(query: str, user_id: int):
         if LANGUAGE == "en"
         else (await arq.translate(query, "en")).result.translatedText
     )
-    resp = (await arq.Chisato(query, user_id)).result
+    resp = (await arq.luna(query, user_id)).result
     return (
         resp
         if LANGUAGE == "en"
