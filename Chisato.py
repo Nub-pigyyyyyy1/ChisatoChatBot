@@ -1,5 +1,5 @@
-#credits :- @thehamkercat for the Api
-#.
+# credits :- @thehamkercat for the Api
+# .
 import os
 import re
 from asyncio import gather, get_event_loop, sleep
