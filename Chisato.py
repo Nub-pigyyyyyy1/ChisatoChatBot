@@ -1,5 +1,5 @@
-# credits :- @thehamkercat for the Api
-# .
+# thank @thehamkercat for the Api
+# https://arq.hamker.dev
 import os
 import re
 from asyncio import gather, get_event_loop, sleep
