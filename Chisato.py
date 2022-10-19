@@ -30,7 +30,7 @@ async def ChisatoQuery(query: str, user_id: int):
     query = (
         query
         if LANGUAGE == "en"
-        else (await arq.translate(query, "en")).result.translatedText
+        else (await arq.translate(query, "en")).result.translate
     )
     resp = (await arq.luna(query, user_id)).result
     return (
