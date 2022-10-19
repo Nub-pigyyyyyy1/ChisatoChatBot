@@ -36,7 +36,7 @@ async def ChisatoQuery(query: str, user_id: int):
     return (
         resp
         if LANGUAGE == "en"
-        else (await arq.translate(resp, LANGUAGE)).result.translatedText
+        else (await arq.translate(resp, LANGUAGE)).result.translate
     )
 
 
