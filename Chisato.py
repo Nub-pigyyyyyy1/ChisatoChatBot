@@ -1,9 +1,9 @@
-import os
 import re
-from asyncio import gather, sleep
+import os
+from asyncio import gather, get_event_loop, sleep
 
 from aiohttp import ClientSession
-from pyrogram import Client, filters
+from pyrogram import Client, filters, idle
 from Python_ARQ import ARQ
 
 is_config = os.path.exists("config.py")
@@ -13,7 +13,7 @@ if is_config:
 else:
     from sample_config import *
 
-Chisato = Client(
+luna = Client(
     ":memory:",
     bot_token=bot_token,
     api_id=6,
@@ -30,18 +30,13 @@ async def ChisatoQuery(query: str, user_id: int):
         if LANGUAGE == "en"
         else (await arq.translate(query, "en")).result.translatedText
     )
-    resp = (
-        await arq.Client(
-            ":memory:",
-            bot_token=bot_token,
-            api_id=6,
-            api_hash="eb06d4abfb49dc3eeb1aeb98ae0f581e",
-        )(query, user_id)
-    ).result
+    resp = (await arq.Chisato(query, user_id)).result
     return (
         resp
         if LANGUAGE == "en"
-        else (await arq.translate(resp, LANGUAGE)).result.translatedText
+        else (
+            await arq.translate(resp, LANGUAGE)
+        ).result.translatedText
     )
 
 
@@ -58,8 +53,8 @@ async def type_and_send(message):
 @Chisato.on_message(filters.command("repo") & ~filters.edited)
 async def repo(_, message):
     await message.reply_text(
-        "[Repo](https://github.com/Yoshikage1/ChisatoChatBot)"
-        + " | [support](t.me/kakashi_bots_support)",
+        "[Repository](https://github.com/Yoshikage1/ChisatoChatBot)"
+        + " | [Support](t.me/CrusadersTechsupport)",
         disable_web_page_preview=True,
     )
 
@@ -72,7 +67,10 @@ async def start(_, message):
 
 
 @Chisato.on_message(
-    ~filters.private & filters.text & ~filters.command("help") & ~filters.edited,
+    ~filters.private
+    & filters.text
+    & ~filters.command("help")
+    & ~filters.edited,
     group=69,
 )
 async def chat(_, message):
@@ -93,7 +91,9 @@ async def chat(_, message):
     await type_and_send(message)
 
 
-@Chisato.on_message(filters.private & ~filters.command("help") & ~filters.edited)
+@Chisato.on_message(
+    filters.private & ~filters.command("help") & ~filters.edited
+)
 async def chatpm(_, message):
     if not message.text:
         return
@@ -105,10 +105,7 @@ async def main():
     session = ClientSession()
     arq = ARQ(ARQ_API_BASE_URL, ARQ_API_KEY, session)
 
-
-if __name__ == "Chisato":
-    Chisato().run()
-
+    await Chisato.start()
     print(
         """
 -----------------
@@ -116,3 +113,8 @@ if __name__ == "Chisato":
 -----------------
 """
     )
+    await idle()
+
+
+loop = get_event_loop()
+loop.run_until_complete(main())
