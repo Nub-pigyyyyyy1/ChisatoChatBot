@@ -48,7 +48,7 @@ async def type_and_send(message):
     await message._client.send_chat_action(chat_id, "cancel")
 
 
-@chisato.on_message(filters.command("repo") & ~filters.edited)
+@Chisato.on_message(filters.command("repo") & ~filters.edited)
 async def repo(_, message):
     await message.reply_text(
         "[Repository](https://github.com/Yoshikage1/ChisatoChatBot)"
